@@ -7,3 +7,4 @@ echo "switching $project_env_name environment..."
 echo "checking for python..." `python -V` `echo "from"` `which python | xargs ls -l`
 echo "checking for pip..." `pip -V`
 echo "checking for django..." `django-admin --version` `echo "from"` `which django-admin | xargs ls -l`
+echo "checking for psycopg2..." `pip show psycopg2`
