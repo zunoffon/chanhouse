@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -25,14 +24,15 @@ SECRET_KEY = 'h_^+h+@u!6hl5zitywaejy(sly5-2s%rl9k$ym&0+fkc&xw)9m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 def getHost():
     filePath = os.path.dirname(os.path.abspath(__file__)) + "/../myhost.txt"
     getHost = open(filePath).read().split("\n")
-    getHost = [x for x in getHost if x] # delete empty elements
+    getHost = [x for x in getHost if x]  # delete empty elements
     return getHost
 
-ALLOWED_HOSTS = getHost()
 
+ALLOWED_HOSTS = getHost()
 
 # Application definition
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'chan_dashboard.apps.ChanDashboardConfig',
 ]
 
 MIDDLEWARE = [
@@ -75,7 +76,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'chanhouse_base.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -89,7 +89,6 @@ DATABASES = {
         'PORT': '',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -109,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -123,8 +121,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+

@@ -1,9 +1,9 @@
-#s!/usr/bin/env python
+#!/usr/bin/env python
 import os
 import sys
 
 if __name__ == '__main__':
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chanhouse_base.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'chan_dashboard.settings')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
