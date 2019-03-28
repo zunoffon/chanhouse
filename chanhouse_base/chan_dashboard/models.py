@@ -44,7 +44,7 @@ class Category(models.Model):
 
 
 class BookDate(models.Model):
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     orderDate = models.DateTimeField(default=timezone.now)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     status_choice = (

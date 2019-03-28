@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'chan_dashboard.apps.ChanDashboardConfig',
+    'rest_framework',
+    'chanhouse_base.chan_dashboard.apps.ChanDashboardConfig',
 ]
 
 MIDDLEWARE = [
@@ -55,6 +56,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'DATETIME_FORMAT': "%d/%m/%Y %H:%M",
+}
 
 ROOT_URLCONF = 'chanhouse_base.urls'
 
@@ -124,5 +132,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
-
+STATIC_URL = '/chanhouse_base/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'chanhouse_base/static'),
+)

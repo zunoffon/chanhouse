@@ -16,4 +16,6 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('typename', 'price_normal', 'price_student', 'price_staff', 'price_vip')
 
 
-admin.site.register(BookDate)
+@admin.register(BookDate)
+class BookDateAdmin(admin.ModelAdmin):
+    list_display = ('user', 'orderDate', 'category', 'status')

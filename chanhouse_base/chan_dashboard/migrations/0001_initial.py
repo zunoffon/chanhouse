@@ -65,16 +65,16 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='gallery',
             name='user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='chan_dashboard.User'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='chanhouse_base.chan_dashboard.User'),
         ),
         migrations.AddField(
             model_name='bookdate',
             name='category',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='chan_dashboard.Category'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='chanhouse_base.chan_dashboard.Category'),
         ),
         migrations.AddField(
             model_name='bookdate',
             name='user',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='chan_dashboard.User'),
+            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='chanhouse_base.chan_dashboard.User'),
         ),
     ]

@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class ChanDashboardConfig(AppConfig):
-    name = 'chan_dashboard'
+    name = 'chanhouse_base.chan_dashboard'

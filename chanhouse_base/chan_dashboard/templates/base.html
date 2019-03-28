@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -9,14 +10,19 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicon.png">
+    <link rel="icon" type="{% static "images/logo-icon.png" %}" sizes="16x16" href="../../static/images/favicon.png">
     <title> Chan House</title>
     <!-- Custom CSS -->
-    <link href="../static/libs/flot/css/float-chart.css" rel="stylesheet">
+    <link href="{% static "libs/flot/css/float-chart.css" %}" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../static/css/style.min.css" rel="stylesheet">
+    <link href="{% static "css/style.min.css" %}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
+    {% block css  %}
+        <!-- Extra CSS -->
+    {% endblock %}
+
 </head>
 
 <body>
@@ -49,14 +55,14 @@
                         <b class="logo-icon p-l-10">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="../static/images/logo-icon.png" alt="homepage" class="light-logo" />
+                            <img src="{%  static "images/logo-icon.png" %}" alt="homepage" class="light-logo" />
 
                         </b>
                         <!--End Logo icon -->
                          <!-- Logo text -->
                         <span class="logo-text">
                              <!-- dark Logo text -->
-                             <img src="../static/images/logo-text.png" alt="homepage" class="light-logo" />
+                             <img src="{% static "images/logo-text.png" %}" alt="homepage" class="light-logo" />
 
                         </span>
                         <!-- Logo icon -->
@@ -104,7 +110,7 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../static/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{% static "images/users/1.jpg "%}" alt="user" class="rounded-circle" width="31"></a>
                         </li>
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
@@ -154,14 +160,38 @@
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
         <div class="page-wrapper">
-
-            <!-- Content -->
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title">{% block title %}{% endblock %}</h4>
+                        <div class="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
 
+            <!-- ============================================================== -->
+            <!-- Content -->
+            <!-- ============================================================== -->
+            <div id="content" class="container-fluid">
+                {% block content %}
+                {% endblock %}
+            </div>
             <!-- ============================================================== -->
             <!-- End Content -->
             <!-- ============================================================== -->
-
 
         </div>
         <!-- ============================================================== -->
@@ -174,30 +204,21 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="../static/libs/jquery/dist/jquery.min.js"></script>
+    <script src="{% static "libs/jquery/dist/jquery.min.js" %}"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="../static/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../static/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../static/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="../static/libs-extra/sparkline/sparkline.js"></script>
+    <script src="{% static "libs/popper.js/dist/umd/popper.min.js" %}"></script>
+    <script src="{% static "libs/bootstrap/dist/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js" %}"></script>
+    <script src="{% static "libs-extra/sparkline/sparkline.js" %} "></script>
     <!--Wave Effects -->
-    <script src="../static/js/waves.js"></script>
+    <script src="{% static "js/waves.js" %} "></script>
     <!--Menu sidebar -->
-    <script src="../static/js/sidebarmenu.js"></script>
+    <script src="{% static "js/sidebarmenu.js" %} "></script>
     <!--Custom JavaScript -->
-    <script src="../static/js/custom.min.js"></script>
-    <!--This page JavaScript -->
-    <!-- <script src="../../dist/js/pages/dashboards/dashboard1.js"></script> -->
-    <!-- Charts js Files -->
-    <script src="../static/libs/flot/excanvas.js"></script>
-    <script src="../static/libs/flot/jquery.flot.js"></script>
-    <script src="../static/libs/flot/jquery.flot.pie.js"></script>
-    <script src="../static/libs/flot/jquery.flot.time.js"></script>
-    <script src="../static/libs/flot/jquery.flot.stack.js"></script>
-    <script src="../static/libs/flot/jquery.flot.crosshair.js"></script>
-    <script src="../static/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    <script src="../static/js/pages/chart/chart-page-init.js"></script>
-
+    <script src="{% static "js/custom.min.js" %} "></script>
+    {% block script %}
+    <!-- Extra javascript-->
+    {% endblock %}
 </body>
 
 </html>
