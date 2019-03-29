@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from pathlib import Path
+
+# Utilities
+PROJECT_PACKAGE = Path(__file__).resolve().parent
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -37,6 +41,7 @@ ALLOWED_HOSTS = getHost()
 # Application definition
 
 INSTALLED_APPS = [
+    'administrator.apps.AdministratorConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -60,7 +65,7 @@ ROOT_URLCONF = 'chanhouse_base.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(PROJECT_PACKAGE.joinpath('templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,4 +132,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+STATICFILES_DIRS = [str(PROJECT_PACKAGE.joinpath('static'))]
 STATIC_URL = '/static/'
