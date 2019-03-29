@@ -11,21 +11,20 @@ pip3 install virtualenv #This convenient isolation prevents conflicting packages
 ### Install the database software (PostgreSQL)
 - For Linux - Install the database software
 ```console
-sudo apt-get install postgresql postgresql-contrib
-```
-- Create a Database and Database User
-```console
-sudo su - postgres
-psql
-```
-- Create a database for chanhouse project
-```console
-CREATE DATABASE chanhouse_db;
-```
-- Create a database user to connect and interact with chanhouse_db
-```console
-CREATE USER chanhouse_db_user WITH PASSWORD 'chanhouse_db_password';
-```
+sudo apt-get install postgresql postgresql-contrib 
+``` 
+- Create a Database and Database User 
+```console 
+sudo su - postgres psql 
+``` 
+- Create a database for chanhouse project 
+```console 
+CREATE DATABASE chanhouse_db; 
+``` 
+- Create a database user to connect and interact with chanhouse_db 
+```console 
+CREATE USER chanhouse_db_user WITH PASSWORD 'chanhouse_db_password'; 
+``` 
 - Give our database user access rights to the database we created
 ```console
 GRANT ALL PRIVILEGES ON DATABASE chanhouse_db TO chanhouse_db_user;
@@ -38,6 +37,11 @@ GRANT ALL PRIVILEGES ON DATABASE chanhouse_db TO chanhouse_db_user;
 ```console
 exit
 ```
+- For Windows - Install software
+    https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+    Install Tut: http://www.postgresqltutorial.com/install-postgresql/
+    Access PSQL - Create database and user the same with linux and macos 
+    
 - For Mac OS - Install the database software
 ```console
 brew install postgresql
@@ -65,7 +69,8 @@ GRANT ALL PRIVILEGES ON DATABASE chanhouse_db TO chanhouse_db_user;
 - Exit out of the postgres user's shell session to get back to your regular user's shell session
 ```console
 exit
-`
+```
+
 ### Install packages using in virtual environment (Django framework, psycopg2)
 Create your virtual environment
 ```console
@@ -75,14 +80,12 @@ Activate the virtual environment
 ```console
 . active-env.sh
 ```
-Within the environment, install the Django package using pip
+### Install package for project
 ```console
-pip install Django==2.1.4
+pip install -r requirements-dev.txt
 ```
-Within the environment, install the psycopg2 package that will allow to use the postgresqp database
-```console
-pip install psycopg2
-```
+
+
 Checkout this release notes: https://docs.djangoproject.com/en/2.1/releases/2.1.4/
 ### Important note: source environment for every developing project
 ```console

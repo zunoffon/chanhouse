@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Tạo dữ liệu
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"> Tạo dữ liệu</h5>
+                    </div>
+                    <div class="col-sm-6">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <label>Upload a file</label>
+                            <input type="file" name="myfile">
+                            <p>Only accept CSV files</p>
+                            <button type="submit">Upload</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

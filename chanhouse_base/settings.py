@@ -19,7 +19,6 @@ PROJECT_PACKAGE = Path(__file__).resolve().parent
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
@@ -29,14 +28,15 @@ SECRET_KEY = 'h_^+h+@u!6hl5zitywaejy(sly5-2s%rl9k$ym&0+fkc&xw)9m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 def getHost():
     filePath = os.path.dirname(os.path.abspath(__file__)) + "/../myhost.txt"
     getHost = open(filePath).read().split("\n")
-    getHost = [x for x in getHost if x] # delete empty elements
+    getHost = [x for x in getHost if x]  # delete empty elements
     return getHost
 
-ALLOWED_HOSTS = getHost()
 
+ALLOWED_HOSTS = getHost()
 
 # Application definition
 
@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'import_export',
+    'chanhouse_base.chan_dashboard.apps.ChanDashboardConfig',
 ]
 
 MIDDLEWARE = [
@@ -60,12 +63,27 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'DATETIME_FORMAT': "%d/%m/%Y %H:%M",
+}
+
 ROOT_URLCONF = 'chanhouse_base.urls'
+
+IMPORT_EXPORT_USE_TRANSACTIONS = True
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+<<<<<<< HEAD
         'DIRS': [str(PROJECT_PACKAGE.joinpath('templates'))],
+=======
+        'DIRS': [
+            os.path.join(BASE_DIR, 'chanhouse_base', 'templates'),
+        ],
+>>>>>>> 8672578dbb142c8120fea3595bd9bafd116358e3
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,7 +98,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'chanhouse_base.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
@@ -94,7 +111,6 @@ DATABASES = {
         'PORT': '',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -114,7 +130,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
@@ -128,9 +143,16 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+<<<<<<< HEAD
 STATICFILES_DIRS = [str(PROJECT_PACKAGE.joinpath('static'))]
 STATIC_URL = '/static/'
+=======
+STATIC_URL = '/chanhouse_base/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'chanhouse_base/static'),
+)
+>>>>>>> 8672578dbb142c8120fea3595bd9bafd116358e3
