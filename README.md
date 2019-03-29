@@ -80,14 +80,12 @@ Activate the virtual environment
 ```console
 . active-env.sh
 ```
-Within the environment, install the Django package using pip
+### Install package for project
 ```console
-pip install Django==2.1.4
+pip install -r requirements-dev.txt
 ```
-Within the environment, install the psycopg2 package that will allow to use the postgresqp database
-```console
-pip install psycopg2
-```
+
+
 Checkout this release notes: https://docs.djangoproject.com/en/2.1/releases/2.1.4/
 ### Important note: source environment for every developing project
 ```console

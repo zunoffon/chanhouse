@@ -1,0 +1,4 @@
+id,typename,slug,price_normal,price_student,price_staff,price_vip
+1,xoa bop,xoa_bop,200000,150000,200000,200000
+2,xong hoi,xong_hoi,300000,250000,300000,350000
+3,xoa,xoa,200000,150000,200000,200000
