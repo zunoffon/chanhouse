@@ -41,7 +41,6 @@ ALLOWED_HOSTS = getHost()
 # Application definition
 
 INSTALLED_APPS = [
-    'administrator.apps.AdministratorConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,6 +50,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'import_export',
     'chanhouse_base.chan_dashboard.apps.ChanDashboardConfig',
+    'chanhouse_base.administrator.apps.AdministratorConfig',
 ]
 
 MIDDLEWARE = [
@@ -77,13 +77,9 @@ IMPORT_EXPORT_USE_TRANSACTIONS = True
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-<<<<<<< HEAD
-        'DIRS': [str(PROJECT_PACKAGE.joinpath('templates'))],
-=======
         'DIRS': [
             os.path.join(BASE_DIR, 'chanhouse_base', 'templates'),
         ],
->>>>>>> 8672578dbb142c8120fea3595bd9bafd116358e3
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -146,13 +142,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-<<<<<<< HEAD
-STATICFILES_DIRS = [str(PROJECT_PACKAGE.joinpath('static'))]
-STATIC_URL = '/static/'
-=======
 STATIC_URL = '/chanhouse_base/static/'
-
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'chanhouse_base/static'),
 )
->>>>>>> 8672578dbb142c8120fea3595bd9bafd116358e3

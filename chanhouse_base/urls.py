@@ -16,13 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from django.urls import include
-
 urlpatterns = [
-<<<<<<< HEAD
     path('administrator/', include('administrator.urls')),
-=======
     path('', include('chanhouse_base.chan_dashboard.urls')),
->>>>>>> 8672578dbb142c8120fea3595bd9bafd116358e3
     path('admin/', admin.site.urls),
 ]
