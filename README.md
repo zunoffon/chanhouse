@@ -85,6 +85,18 @@ Activate the virtual environment
 pip install -r requirements-dev.txt
 ```
 
+### NOTE DATEBASE:
+When changing database please drop database and user database, after that makemigrations and migrate.
+```console
+psql postgres
+drop database chanhouse_db;
+drop database chanhouse_db_user;
+CREATE DATABASE chanhouse_db;
+CREATE USER chanhouse_db_user WITH PASSWORD 'chanhouse_db_password';
+GRANT ALL PRIVILEGES ON DATABASE chanhouse_db TO chanhouse_db_user;
+python manage.py makemigrations
+python manage.py migrate
+```
 
 Checkout this release notes: https://docs.djangoproject.com/en/2.1/releases/2.1.4/
 ### Important note: source environment for every developing project
